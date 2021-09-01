@@ -14,12 +14,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: "Password is required!",
     },
-    roles: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Role"
-      }
-    ]
+    role: {
+      type: String,
+      default: "client",
+      enum: ["client", "manager", "admin"]
+    }
   },
   
 );

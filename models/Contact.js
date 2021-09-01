@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const contactForm = new mongoose.Schema(
+const contact = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -13,11 +13,8 @@ const contactForm = new mongoose.Schema(
     city: {
         type: String,
     },
-    
-    
     phone:{
       type: Number,
-
     },
     cv:{
       type: String, 
@@ -31,4 +28,4 @@ const contactForm = new mongoose.Schema(
     timestamps: true,
   }
 );
-module.exports = mongoose.model("Contact", contactForm);
+module.exports = mongoose.model("Contact", contact);
