@@ -10,6 +10,7 @@ app.use(require("cors")());
 
 //Bring in the routes
 app.use("/user", require("./routes/user"));
+app.use("/contact", require("./routes/contact"));
 
 
 //Setup Error Handlers

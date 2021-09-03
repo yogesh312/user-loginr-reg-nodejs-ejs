@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.DATABASE, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
+  useFindAndModify: false,
 });
 
 mongoose.connection.on("error", (err) => {
@@ -16,6 +17,7 @@ mongoose.connection.once("open", () => {
 
 //Bring in the models
 require("./models/User");
+require("./models/Contact")
 
 
 const app = require("./app");
@@ -24,9 +26,10 @@ const server = app.listen(8000, () => {
   console.log("Server listening on port 8000");
 });
 
-const io = require("socket.io")(server);
+
 const jwt = require("jwt-then");
 
 
 const User = mongoose.model("User");
+const Contact = mongoose.model("Contact");
 
