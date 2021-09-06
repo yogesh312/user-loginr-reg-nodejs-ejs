@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User");
 const sha256 = require("js-sha256");
 const jwt = require("jwt-then");
+const fs = require('fs');
+const path = require('path');
+
 
 exports.register = async (req, res) => {
   const { name, email, password } = req.body;
@@ -46,3 +49,19 @@ exports.login = async (req, res) => {
     token,
   });
 };
+
+exports.logins = async (req, res) => {
+  
+
+  res.render('views/login', {
+    title: "login"
+  });
+};
+
+exports.registers = async (req, res) => {
+  
+
+  res.render('./views/register',{
+    title:"register"
+  });
+}
