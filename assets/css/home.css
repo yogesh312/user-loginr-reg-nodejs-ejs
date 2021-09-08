@@ -1,6 +1,9 @@
 #home{
   width: 100%;
 }
+#newhome{
+  border: 1px black;
+}
 
 #info{
   width: 85%;
@@ -30,7 +33,9 @@
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
 }
-
+table, th, td {
+  border: 1px solid black;
+}
 #reset-form{
   display: none;
 }
