@@ -27,6 +27,7 @@ exports.register = async (req, res) => {
   });
 
   await user.save();
+  res.redirect('login')
 
   res.json({
     message: "User [" + name + "] registered successfully!",
@@ -44,24 +45,32 @@ exports.login = async (req, res) => {
 
   const token = await jwt.sign({ id: user.id }, process.env.SECRET);
 
-  res.json({
-    message: "User logged in successfully!",
-    token,
-  });
+  // res.json({
+  //   message: "User logged in successfully!",
+  //   token,
+  // });
+  
+  res.render('allCon',{
+    title:"info"
+  })
 };
 
 exports.logins = async (req, res) => {
   
 
-  res.render('views/login', {
+  res.render('login', {
     title: "login"
   });
 };
 
 exports.registers = async (req, res) => {
-  
-
-  res.render('./views/register',{
+  res.render('./register',{
     title:"register"
+  });
+}
+
+exports.home = async (req, res) => {
+  res.render('home',{
+    title:"home"
   });
 }

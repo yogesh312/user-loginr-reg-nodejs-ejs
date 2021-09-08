@@ -28,19 +28,27 @@ exports.createContact = async (req, res) => {
   });
 };
 
-exports.getAllContact = async (req, res) => {
-  const contact = await Contact.find({});
 
-  res.json(contact);
+
+exports.getAllContact = async (req, res) => {
+  await Contact.find({}, function(err,contact){
+    res.render('contactList',{
+      title:"all contact",
+      contactList: contact
+    })
+  });
+
+  //res.json(contact);
+  
 };
 
 
 exports.editContact = async (req, res) => {
-  const id = req.params._id;
-  console.log(id);
+  const name = req.params.name;
+  console.log(name);
   
   
-  Contact.findOneAndUpdate({"_id": id}, 
+  Contact.findOneAndUpdate({"name": name}, 
   { "$set": { 
     "name": req.body.name, 
     "email": req.body.email, 
@@ -54,6 +62,17 @@ exports.editContact = async (req, res) => {
     }})
     //res.json(contact);
   //res.message("contact updated") lets try
-  };
+  
+};
 
- 
+exports.createContact1 = async (req, res) => {
+  res.render('./contact',{
+    title:"contact"
+  });
+};
+exports.editContact1 = async (req, res) => {
+  res.render('./contactEdit',{
+    title:"contactEdit",
+    name:req.params.name
+  });
+}
