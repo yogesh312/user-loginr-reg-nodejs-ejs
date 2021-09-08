@@ -1,0 +1,24 @@
+<table id="contact" class="form-style">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">City</th>
+            <th scope="col">Phone</th>
+            <th scope="col">message</th>
+          </tr>
+        </thead>
+        <tbody>
+        <%contactList.forEach(contact =>{%>
+            <tr>
+                <th scope="row"><%=contact._id %></th>
+                <td><%=contact.name %></td>
+                <td><%=contact.email %></td>
+                <td><%=contact.city %></td>
+                <td><%=contact.phone %></td>
+                <td><%=contact.message %></td>
+            </tr>
+        <%})%>
+        </tbody>
+</table>
